@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himanshi | Biotechnology Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d4ff;
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 20px;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #00d4ff;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 5px;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background: #00d4ff;
+      cursor: pointer;
+    }
+  </style></head><body><header>
+  <h1>Hi, I'm Himanshi</h1>
+  <p>Biotechnology Student | Researcher | Innovator</p>  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header><section id="about">
+  <div class="card">
+    <h2>About Me</h2>
+    <p>I am a biotechnology student passionate about genomics, tissue culture, and data analysis. I enjoy working on research projects that combine biology with technology.</p>
+  </div>
+</section><section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">Carbon Absorption System</div>
+    <div class="card">Smart Health Monitoring</div>
+    <div class="card">Genomic Data Analysis</div>
+  </div>
+</section><section id="research">
+  <h2>Research Work</h2>
+  <div class="card">
+    <p>• Genomic Data Interpretation</p>
+    <p>• Cell Culture Techniques</p>
+    <p>• Tissue Culture Studies</p>
+    <p>• DNA Structure Modeling</p>
+  </div>
+</section><section>
+  <h2 style="text-align:center">DNA Structure Animation 🧬</h2>
+  <canvas id="dnaCanvas" width="400" height="300"></canvas>
+</section><section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <span class="tag">Biotechnology</span>
+    <span class="tag">Genomics</span>
+    <span class="tag">Data Analysis</span>
+    <span class="tag">Cell Culture</span>
+    <span class="tag">Tissue Culture</span>
+    <span class="tag">JavaScript</span>
+  </div>
+</section><section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+    <button onclick="message()">Say Hello</button>
+  </div>
+</section><footer>
+  <p>© 2026 Himanshi | Biotechnology Portfolio</p>
+</footer><script>
+  function message() {
+    alert("Thanks for visiting my biotech portfolio!");
+  }
+
+  const canvas = document.getElementById("dnaCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let angle = 0;
+
+  function drawDNA() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < 20; i++) {
+      let x = 200 + Math.sin(i * 0.5 + angle) * 80;
+      let y = i * 15;
+
+      let x2 = 200 + Math.sin(i * 0.5 + angle + Math.PI) * 80;
+
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(x2, y, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x2, y);
+      ctx.stroke();
+    }
+
+    angle += 0.05;
+    requestAnimationFrame(drawDNA);
+  }
+
+  drawDNA();
+</script></body>
+</html>
